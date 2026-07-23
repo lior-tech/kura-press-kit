@@ -3,7 +3,7 @@
 import base64, hashlib, json, os, sys
 
 SP = os.path.dirname(os.path.abspath(__file__))
-ACCESS_CODE = os.environ.get('KURA_CODE', 'douro2029')  # lowercase; placeholder until Lior confirms
+ACCESS_CODE = os.environ.get('KURA_CODE', 'kura2029')  # lowercase; confirmed by Lior 23 Jul 2026
 
 def b64(path, mime):
     with open(path, 'rb') as f:
