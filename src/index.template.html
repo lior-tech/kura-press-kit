@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="KURA, Douro Valley · Press &amp; Communications Brief. Confidential, for agency use.">
+<title>KURA · Douro Valley · Press Brief</title>
+<link rel="icon" type="image/png" href="{{FAVICON}}">
+<style>
+/* ---------- fonts ---------- */
+@font-face{font-family:'Lora';font-style:normal;font-weight:400 700;font-display:swap;src:url({{F_LORA}}) format('woff2')}
+@font-face{font-family:'Lora';font-style:italic;font-weight:400 700;font-display:swap;src:url({{F_LORA_I}}) format('woff2')}
+@font-face{font-family:'Lato';font-style:normal;font-weight:300;font-display:swap;src:url({{F_LATO_300}}) format('woff2')}
+@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url({{F_LATO_400}}) format('woff2')}
+
+/* ---------- palette : KURA brand book ---------- */
+:root{
+  --schist:#1C1714;
+  --schist-soft:#26201B;
+  --parchment:#E8E0D0;
+  --parchment-deep:#DED4C0;
+  --terracotta:#A85535;
+  --sand:#C4A882;
+  --sage:#6B7D5E;
+  --slate:#9E9489;
+  --ink-on-light:#1C1714;
+  --line-light:rgba(28,23,20,.16);
+  --line-dark:rgba(232,224,208,.18);
+  --serif:'Lora',Georgia,serif;
+  --sans:'Lato',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--schist);color:var(--parchment);font-family:var(--serif);font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--terracotta);color:var(--parchment)}
+
+.label{font-family:var(--sans);font-weight:300;font-size:11px;letter-spacing:.28em;text-transform:uppercase}
+.wrap{max-width:1060px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+
+/* ---------- password gate ---------- */
+body.locked{overflow:hidden}
+#gate{position:fixed;inset:0;z-index:9999;background:var(--schist);display:flex;align-items:center;justify-content:center;transition:opacity .8s ease,visibility .8s ease}
+#gate.unlocked{opacity:0;visibility:hidden;pointer-events:none}
+#gate .card{text-align:center;padding:40px 28px;max-width:420px;width:100%}
+#gate .g-lockup{width:clamp(170px,42vw,200px);margin:0 auto 42px}
+#gate p.g-note{font-style:italic;font-size:15.5px;color:var(--slate);margin-bottom:30px}
+#gate form{display:flex;gap:10px;justify-content:center}
+#gate input{flex:1;max-width:230px;background:transparent;border:1px solid var(--line-dark);color:var(--parchment);font-family:var(--sans);font-weight:300;font-size:13px;letter-spacing:.14em;padding:13px 16px;outline:none;transition:border-color .3s}
+#gate input:focus{border-color:var(--sand)}
+#gate input::placeholder{color:rgba(232,224,208,.35);letter-spacing:.2em;text-transform:uppercase;font-size:11px}
+#gate button{background:transparent;border:1px solid var(--sand);color:var(--sand);font-family:var(--sans);font-weight:300;font-size:11px;letter-spacing:.24em;text-transform:uppercase;padding:13px 22px;cursor:pointer;transition:all .3s}
+#gate button:hover{background:var(--sand);color:var(--schist)}
+#gate .g-err{margin-top:18px;font-family:var(--sans);font-weight:300;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--terracotta);opacity:0;transition:opacity .3s}
+#gate .g-err.show{opacity:1}
+#gate .g-foot{margin-top:56px;font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:rgba(232,224,208,.3)}
+
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(28,23,20,.97);border-bottom:1px solid rgba(232,224,208,.08);transform:translateY(-100%);transition:transform .5s ease}
+body:not(.locked) nav{transform:translateY(0)}
+nav .bar{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,4vw,40px)}
+nav .mark{display:flex;align-items:center;gap:14px}
+nav .mark img.sym{height:16px;width:auto}
+nav .mark img.wm{height:13px;width:auto}
+nav .links{display:flex;gap:clamp(12px,2.4vw,28px)}
+nav .links a{font-family:var(--sans);font-weight:300;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,224,208,.62);transition:color .3s}
+nav .links a:hover{color:var(--parchment)}
+@media(max-width:900px){nav .links a.opt{display:none}}
+@media(max-width:560px){nav .links{display:none}}
+
+/* ---------- hero ---------- */
+header.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;padding:110px 24px 90px}
+.hero .bg{position:absolute;inset:0;overflow:hidden}
+.hero .bg img{width:100%;height:100%;object-fit:cover;object-position:center 65%}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,23,20,.86) 0%,rgba(28,23,20,.42) 45%,rgba(28,23,20,.94) 100%)}
+.hero>div.inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+.hero .h-kicker{color:var(--sand);margin-bottom:54px}
+.hero img.h-lockup{width:clamp(280px,38vw,430px);margin-bottom:30px}
+.hero .h-signature{font-family:var(--serif);font-style:italic;font-size:clamp(19px,2.5vw,28px);color:var(--sand);margin-bottom:34px;letter-spacing:.01em}
+.hero h1{font-weight:400;font-style:italic;font-size:clamp(21px,3vw,30px);line-height:1.5;max-width:640px;color:var(--parchment)}
+.hero .h-sub{margin-top:20px;font-size:15.5px;color:var(--slate);max-width:520px}
+.hero .chips{position:relative;z-index:2;display:flex;flex-wrap:wrap;justify-content:center;gap:0;margin-top:70px;border-top:1px solid var(--line-dark)}
+.hero .chip{padding:22px clamp(18px,3.4vw,44px);border-right:1px solid var(--line-dark);text-align:center}
+.hero .chip:last-child{border-right:none}
+.hero .chip .k{font-family:var(--sans);font-weight:300;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--sand);margin-bottom:8px}
+.hero .chip .v{font-size:15px;color:var(--parchment)}
+@media(max-width:680px){.hero .chips{border:none;gap:18px 0}.hero .chip{width:50%;border:none;padding:10px 8px}}
+
+/* ---------- top ribbon ---------- */
+.ribbon{background:var(--terracotta);color:var(--parchment)}
+.ribbon .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:12px;padding-bottom:12px}
+.ribbon span{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.24em;text-transform:uppercase}
+@media(max-width:640px){.ribbon span.opt{display:none}}
+
+/* ---------- shared section chrome ---------- */
+section.sec{background:var(--parchment);color:var(--ink-on-light)}
+section.sec.dark{background:var(--schist);color:var(--parchment)}
+.sec .inner{padding:clamp(84px,11vw,140px) 0}
+.sec-head{display:flex;align-items:baseline;gap:22px;margin-bottom:clamp(40px,6vw,64px)}
+.sec-head .num{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--terracotta);min-width:34px}
+.sec.dark .sec-head .num{color:var(--sand)}
+.sec-head .label{color:rgba(28,23,20,.5)}
+.sec.dark .sec-head .label{color:rgba(232,224,208,.5)}
+.sec h2{font-weight:500;font-size:clamp(30px,4.6vw,46px);line-height:1.18;letter-spacing:.005em;max-width:700px;margin-bottom:clamp(26px,4vw,40px)}
+.sec .lede{font-size:clamp(16.5px,1.9vw,19px);line-height:1.75;max-width:640px;color:rgba(28,23,20,.82)}
+.sec.dark .lede{color:rgba(232,224,208,.82)}
+.sec p+p{margin-top:1.1em}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);margin-top:clamp(30px,4vw,46px)}
+.cols p{font-size:15.5px;color:rgba(28,23,20,.78)}
+.sec.dark .cols p{color:rgba(232,224,208,.75)}
+@media(max-width:760px){.cols{grid-template-columns:1fr}}
+hr.rule{border:none;border-top:1px solid var(--line-light);margin:clamp(48px,7vw,80px) 0}
+.sec.dark hr.rule{border-top-color:var(--line-dark)}
+
+/* ---------- brand section ---------- */
+.defin{display:flex;flex-direction:column;gap:6px;margin:clamp(36px,5vw,54px) 0;padding:clamp(28px,4vw,42px) clamp(24px,4vw,46px);border-left:2px solid var(--terracotta);background:rgba(28,23,20,.035)}
+.defin .word{font-size:clamp(24px,3vw,32px);font-weight:500;letter-spacing:.12em}
+.defin .pron{font-family:var(--sans);font-weight:300;font-size:12px;letter-spacing:.14em;color:rgba(28,23,20,.55)}
+.defin .meaning{font-style:italic;font-size:17px;margin-top:10px;color:rgba(28,23,20,.85)}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-light);border:1px solid var(--line-light);margin-top:clamp(40px,6vw,60px)}
+.pillar{background:var(--parchment);padding:clamp(24px,3vw,36px) clamp(20px,2.6vw,30px)}
+.pillar .p-num{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.26em;color:var(--terracotta);margin-bottom:16px}
+.pillar h3{font-weight:500;font-size:13.5px;font-family:var(--sans);letter-spacing:.24em;text-transform:uppercase;margin-bottom:14px}
+.pillar p{font-size:14px;line-height:1.7;color:rgba(28,23,20,.72)}
+@media(max-width:900px){.pillars{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.pillars{grid-template-columns:1fr}}
+
+/* ---------- pull quote band ---------- */
+.pull{background:var(--schist);color:var(--parchment);text-align:center}
+.pull .inner{padding:clamp(80px,11vw,130px) 24px;display:flex;flex-direction:column;align-items:center}
+.pull img.q-symbol{width:74px;opacity:.6;margin-bottom:34px}
+.pull blockquote{font-style:italic;font-weight:400;font-size:clamp(22px,3.4vw,34px);line-height:1.5;max-width:760px}
+.pull .attr{margin-top:26px;color:var(--sand)}
+.pull .attr .q-name{display:block;font-family:var(--serif);font-style:italic;font-size:19px;color:var(--parchment)}
+.pull .attr .q-role{display:block;font-family:var(--sans);font-weight:300;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--sand);margin-top:9px}
+
+/* ---------- setting ---------- */
+.places{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-light);border:1px solid var(--line-light);margin-top:clamp(40px,6vw,60px)}
+.place{background:var(--parchment);padding:26px 24px 30px}
+.place .p-k{font-family:var(--sans);font-weight:300;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--terracotta);margin-bottom:12px}
+.place h3{font-weight:500;font-size:18px;margin-bottom:8px}
+.place p{font-size:14px;line-height:1.65;color:rgba(28,23,20,.7)}
+.place .p-d{margin-top:14px;font-family:var(--sans);font-weight:300;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(28,23,20,.5)}
+@media(max-width:820px){.places{grid-template-columns:1fr}}
+
+/* ---------- design credits ---------- */
+.credits{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,44px);margin-top:clamp(40px,6vw,60px)}
+.credit{border-top:1px solid var(--line-dark);padding-top:22px}
+.credit .c-k{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--sand);margin-bottom:12px}
+.credit h3{font-weight:500;font-size:19px;margin-bottom:10px}
+.credit p{font-size:14.5px;line-height:1.7;color:rgba(232,224,208,.72)}
+@media(max-width:820px){.credits{grid-template-columns:1fr}}
+.mats{margin-top:clamp(44px,6vw,64px);display:flex;flex-wrap:wrap;gap:10px}
+.mat{font-family:var(--sans);font-weight:300;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,224,208,.75);border:1px solid var(--line-dark);padding:10px 18px}
+
+/* ---------- carousel ---------- */
+#renders{background:var(--schist);color:var(--parchment)}
+.car{position:relative;margin-top:clamp(36px,5vw,54px)}
+.car .frame{position:relative;overflow:hidden;aspect-ratio:16/10;background:var(--schist-soft)}
+@media(max-width:640px){.car .frame{aspect-ratio:4/3}}
+.car .track{display:flex;height:100%;transition:transform .65s cubic-bezier(.33,.02,.2,1)}
+.car .slide{position:relative;flex:0 0 100%;height:100%;overflow:hidden}
+.car .slide .blur{position:absolute;inset:0;background-size:cover;background-position:center}
+.car .slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.car .slide.fit img{object-fit:contain}
+.car .cap{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:20px 2px 0;border-top:1px solid var(--line-dark);margin-top:22px}
+.car .cap .c-left{display:flex;align-items:baseline;gap:16px;min-height:44px}
+.car .cap .c-label{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--sand);white-space:nowrap}
+.car .cap .c-name{font-size:18px;font-weight:500}
+.car .cap .c-note{font-style:italic;font-size:14.5px;color:rgba(232,224,208,.6);display:none}
+@media(min-width:760px){.car .cap .c-note{display:block}}
+.car .cap .c-count{font-family:var(--sans);font-weight:300;font-size:11px;letter-spacing:.24em;color:rgba(232,224,208,.5);white-space:nowrap}
+.car .arrows{position:absolute;top:0;left:0;right:0;aspect-ratio:16/10;pointer-events:none}
+@media(max-width:640px){.car .arrows{aspect-ratio:4/3}}
+.car .arr{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;width:52px;height:52px;border-radius:50%;border:1px solid rgba(232,224,208,.35);background:rgba(28,23,20,.55);color:var(--parchment);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;font-size:0}
+.car .arr:hover{background:var(--parchment);border-color:var(--parchment);color:var(--schist)}
+.car .arr svg{width:17px;height:17px}
+.car .arr.prev{left:18px}
+.car .arr.next{right:18px}
+@media(max-width:640px){.car .arr{width:42px;height:42px}.car .arr.prev{left:10px}.car .arr.next{right:10px}}
+.car .dots{display:flex;justify-content:center;gap:9px;margin-top:26px}
+.car .dot{width:5px;height:5px;border-radius:50%;background:rgba(232,224,208,.28);border:none;padding:0;cursor:pointer;transition:all .3s}
+.car .dot.on{background:var(--sand);transform:scale(1.5)}
+
+/* ---------- experience ---------- */
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-light);border:1px solid var(--line-light);margin-top:clamp(40px,6vw,60px)}
+.feat{background:var(--parchment);padding:clamp(26px,3.4vw,38px) clamp(22px,3vw,34px)}
+.feat .f-k{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--terracotta);margin-bottom:12px}
+.feat h3{font-weight:500;font-size:19px;margin-bottom:10px}
+.feat p{font-size:14.5px;line-height:1.7;color:rgba(28,23,20,.72)}
+@media(max-width:680px){.feats{grid-template-columns:1fr}}
+.day{margin-top:clamp(52px,7vw,76px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,44px)}
+.day .d{border-top:1px solid var(--line-light);padding-top:20px}
+.day .d-k{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--terracotta);margin-bottom:12px}
+.day h3{font-weight:500;font-size:18px;margin-bottom:10px}
+.day p{font-size:14.5px;line-height:1.7;color:rgba(28,23,20,.72)}
+@media(max-width:760px){.day{grid-template-columns:1fr}}
+
+/* ---------- property ---------- */
+.stats{display:flex;flex-wrap:wrap;border:1px solid var(--line-dark);margin:clamp(40px,6vw,60px) 0}
+.stat{flex:1 1 0;min-width:130px;text-align:center;padding:clamp(26px,3.6vw,40px) 12px;border-right:1px solid var(--line-dark)}
+.stat:last-child{border-right:none}
+.stat .s-v{font-size:clamp(30px,4vw,44px);font-weight:500;line-height:1;margin-bottom:12px}
+.stat .s-k{font-family:var(--sans);font-weight:300;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--sand)}
+@media(max-width:680px){.stat{flex:1 1 40%;border-bottom:1px solid var(--line-dark)}.stats{border-bottom:none}}
+.amen{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px)}
+.amen h3{font-family:var(--sans);font-weight:300;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--sand);margin-bottom:20px}
+.amen ol{list-style:none}
+.amen li{display:flex;gap:16px;padding:13px 0;border-bottom:1px solid var(--line-dark);font-size:15px;align-items:baseline}
+.amen li .n{font-family:var(--sans);font-weight:300;font-size:10px;color:rgba(232,224,208,.4);min-width:20px}
+.amen li .d{margin-left:auto;font-style:italic;font-size:13.5px;color:rgba(232,224,208,.55);text-align:right}
+@media(max-width:760px){.amen{grid-template-columns:1fr}}
+
+/* ---------- fact sheet ---------- */
+.facts{border-top:1px solid var(--line-light)}
+.fact{display:grid;grid-template-columns:220px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line-light);font-size:15px}
+.fact .k{font-family:var(--sans);font-weight:300;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(28,23,20,.55);padding-top:3px}
+.fact .v em{color:var(--terracotta);font-style:italic}
+@media(max-width:620px){.fact{grid-template-columns:1fr;gap:5px}}
+
+/* ---------- press ---------- */
+.heroLines{margin:clamp(34px,5vw,50px) 0}
+.heroLines .hl{padding:20px 0;border-bottom:1px solid var(--line-dark);font-style:italic;font-size:clamp(18px,2.4vw,23px);line-height:1.5}
+.heroLines .hl:first-child{border-top:1px solid var(--line-dark)}
+.guard{margin-top:clamp(44px,6vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark)}
+.guard .g{background:var(--schist);padding:clamp(24px,3vw,34px) clamp(20px,2.6vw,30px)}
+.guard h3{font-family:var(--sans);font-weight:300;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--sand);margin-bottom:14px}
+.guard p{font-size:14.5px;line-height:1.7;color:rgba(232,224,208,.75)}
+@media(max-width:680px){.guard{grid-template-columns:1fr}}
+.contact{margin-top:clamp(44px,6vw,64px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,44px)}
+.contact .c{border-top:1px solid var(--line-dark);padding-top:20px}
+.contact .c-k{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--sand);margin-bottom:12px}
+.contact p{font-size:15px;line-height:1.8}
+.contact p .todo{color:var(--terracotta);font-style:italic}
+@media(max-width:760px){.contact{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{background:var(--schist);border-top:1px solid rgba(232,224,208,.1)}
+footer .inner{max-width:1060px;margin:0 auto;padding:clamp(60px,8vw,90px) clamp(20px,5vw,48px) 48px;display:flex;flex-direction:column;align-items:center;text-align:center}
+footer img.f-lockup{width:168px;opacity:.85;margin-bottom:44px}
+footer .f-line{font-style:italic;font-size:15.5px;color:var(--slate);margin-bottom:44px}
+footer img.f-boa{height:15px;width:auto;opacity:.7;margin-bottom:18px}
+footer .f-legal{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(232,224,208,.38);line-height:2.1}
+
+/* reveal on scroll */
+.rev{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease}
+.rev.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rev{transition:none;opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="locked">
+
+<!-- ======== ACCESS GATE ======== -->
+<div id="gate">
+  <div class="card">
+    <img class="g-lockup" src="{{L_LOCKUP}}" alt="KURA · Douro Valley · Portugal">
+    <p class="g-note">A private document. Enter the access code to continue.</p>
+    <form id="gate-form" autocomplete="off">
+      <input id="gate-input" type="password" placeholder="Access code" autofocus aria-label="Access code">
+      <button type="submit">Enter</button>
+    </form>
+    <div class="g-err" id="gate-err">Incorrect code</div>
+    <div class="g-foot">Confidential · For agency use</div>
+  </div>
+</div>
+
+<!-- ======== NAV ======== -->
+<nav>
+  <div class="bar">
+    <a class="mark" href="#top">
+      <img class="sym" src="{{L_SYMBOL}}" alt="">
+      <img class="wm" src="{{L_WORDMARK}}" alt="KURA">
+    </a>
+    <div class="links">
+      <a href="#brand">Brand</a>
+      <a href="#setting" class="opt">Setting</a>
+      <a href="#design">Design</a>
+      <a href="#renders">Renders</a>
+      <a href="#experience" class="opt">Experience</a>
+      <a href="#property">Property</a>
+      <a href="#facts" class="opt">Fact Sheet</a>
+      <a href="#press">Press</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ======== HERO ======== -->
+<header class="hero" id="top">
+  <div class="bg"><img src="{{IMG_HERO}}" alt=""></div>
+  <div class="veil"></div>
+  <div class="inner">
+    <div class="label h-kicker">Press &amp; Communications Brief</div>
+    <img class="h-lockup" src="{{L_LOCKUP}}" alt="KURA · Douro Valley · Portugal">
+    <div class="h-signature">Timeless Places</div>
+    <h1>Where the Douro is distilled and revealed with precision.</h1>
+    <p class="h-sub">A wellness resort held within a historic quinta, high in the Douro Valley. Opening 2029.</p>
+  </div>
+  <div class="chips">
+    <div class="chip"><div class="k">Location</div><div class="v">Douro Valley, Portugal</div></div>
+    <div class="chip"><div class="k">Opening</div><div class="v">2029</div></div>
+    <div class="chip"><div class="k">Keys</div><div class="v">71 rooms &amp; suites</div></div>
+    <div class="chip"><div class="k">Operator</div><div class="v">BOA Hotels</div></div>
+  </div>
+</header>
+
+<div class="ribbon">
+  <div class="wrap">
+    <span>Press Brief · v2</span>
+    <span class="opt">Preserved · Restored · Revealed</span>
+    <span>Confidential · For agency use</span>
+  </div>
+</div>
+
+<!-- ======== I · BRAND ======== -->
+<section class="sec" id="brand">
+  <div class="wrap inner">
+    <div class="sec-head rev"><span class="num">I</span><span class="label">The Brand</span></div>
+    <h2 class="rev">A place preserved.</h2>
+    <p class="lede rev">KURA is a name built for a place that treats its setting as something to be preserved and expressed with care.</p>
+
+    <div class="defin rev">
+      <div class="word">kura</div>
+      <div class="pron">/ˈkuː.ɾa/ · noun · Japanese</div>
+      <div class="meaning">A storehouse conceived to safeguard what is valuable, through insulation, restraint, and time.</div>
+    </div>
+
+    <div class="cols rev">
+      <p>That meaning resonates in the Douro, where the region's identity is shaped by what happens in protected interiors: the cellar where wine gains depth, the stone buildings that hold warmth through winter, the quiet rhythm of agriculture between harvest and renewal. KURA evokes a sheltered world where the Douro is distilled and revealed with precision.</p>
+      <p>The name also carries a subtle Portuguese resonance with <em>cura</em>, the idea of healing and recovery. In a winter-led destination, this becomes a coherent promise: altitude, cold air, and silence outdoors, balanced by warmth, water, and calm indoors.</p>
+    </div>
+
+    <div class="pillars rev">
+      <div class="pillar">
+        <div class="p-num">01</div>
+        <h3>Safeguard</h3>
+        <p>What is valuable must be held with care. Every material, ingredient, and voice that belongs to this territory is treated as something to be protected and passed on.</p>
+      </div>
+      <div class="pillar">
+        <div class="p-num">02</div>
+        <h3>Restore</h3>
+        <p>The season becomes the setting that makes restoration feel profound. Cold air and silence outdoors; warmth, water, and calm indoors. Winter is not a limitation. It is the offer.</p>
+      </div>
+      <div class="pillar">
+        <div class="p-num">03</div>
+        <h3>Root</h3>
+        <p>Shaped by agricultural rhythm and regional materials. Local sourcing, seasonal produce, and a cultural programme that foregrounds craft and local artistic voices.</p>
+      </div>
+      <div class="pillar">
+        <div class="p-num">04</div>
+        <h3>Reveal</h3>
+        <p>A contemporary expression of the Douro Valley. KURA does not recreate the region. It distils it. Precise, unhurried, and entirely rooted in this place.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== PULL ======== -->
+<section class="pull">
+  <div class="inner">
+    <img class="q-symbol rev" src="{{L_SYMBOL}}" alt="">
+    <blockquote class="rev">The valley does not hurry the vine.<br>Neither do we.</blockquote>
+    <div class="attr label rev">Brand voice · core narrative</div>
+  </div>
+</section>
+
+<!-- ======== II · SETTING ======== -->
+<section class="sec" id="setting">
+  <div class="wrap inner">
+    <div class="sec-head rev"><span class="num">II</span><span class="label">The Setting</span></div>
+    <h2 class="rev">High in the Douro Valley, where the river bends and the mountains rise.</h2>
+    <p class="lede rev">A working landscape of terraced vineyards and apple orchards at 1,000 metres, a UNESCO World Heritage wine region and one of Europe's last quiet places.</p>
+
+    <div class="cols rev">
+      <p>The estate sits inside a historic quinta in the high Douro, surrounded by its own vineyards and orchards. Stone walls hold centuries of silence. The air carries wild herbs, pine and the mineral trace of schist. This is not a retreat from the world. It is a return to what the world was before it became noise.</p>
+      <p>The altitude changes everything. Cooler summers, true winters, and a seasonal contrast that most of southern Europe has lost. Days are governed by the light and the land: the harvest, the mist over the river, the first cold mornings that give the spa its reason to exist.</p>
+      <p>The vineyards sit between two denominations: parcels registered in both the Douro DOC and Távora-Varosa, Portugal's historic sparkling-wine region, so the estate can produce still and sparkling wines under each official seal.</p>
+      <p>The Douro was named Wine Region of the Year 2025 by Wine Enthusiast, yet holds fewer than two hundred luxury keys along its whole length, a landscape protected by UNESCO listing, where supply cannot chase demand.</p>
+    </div>
+
+    <div class="places rev">
+      <div class="place">
+        <div class="p-k">01 · Gateway</div>
+        <h3>Porto Airport</h3>
+        <p>International connections; the natural arrival point for the valley.</p>
+        <div class="p-d">≈ 1h30 by car · 131 km</div>
+      </div>
+      <div class="place">
+        <div class="p-k">02 · Capital</div>
+        <h3>Lisbon</h3>
+        <p>Portugal's capital and long-haul hub.</p>
+        <div class="p-d">≈ 3h30 by car · 370 km</div>
+      </div>
+      <div class="place">
+        <div class="p-k">03 · Iberia</div>
+        <h3>Madrid</h3>
+        <p>Within a single drive, part of an urban catchment of more than eleven million.</p>
+        <div class="p-d">≈ 5h by car · 491 km</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== III · DESIGN ======== -->
+<section class="sec dark" id="design">
+  <div class="wrap inner">
+    <div class="sec-head rev"><span class="num">III</span><span class="label">Design &amp; Architecture</span></div>
+    <h2 class="rev">Fire, stone, water, stillness.</h2>
+    <p class="lede rev">A transformation of the existing quinta, not a resort placed onto the landscape but a working estate carefully re-imagined around three principles: warmth, quiet, and the elemental.</p>
+
+    <div class="cols rev">
+      <p>The design language draws its entire palette from the site: local Douro-quarry stone, Marmorino plaster, walnut and oak, terracotta, linen, and bronze. Interiors are built around fire and water: sculpted hearths, thermal pools, open fireplaces in the gardens, so that winter becomes the property's defining season rather than its quiet one.</p>
+      <p>Every space is conceived for stillness. Rooms are terraced into the hillside with unbroken views over the valley; shared spaces are small, layered and warm, designed to hold a few people well rather than many people adequately.</p>
+    </div>
+
+    <div class="credits rev">
+      <div class="credit">
+        <div class="c-k">Architecture</div>
+        <h3>FAT · Future Architecture Thinking</h3>
+        <p>Lisbon-based architecture studio led by Miguel Correia, known for sustainable, context-driven hospitality design.</p>
+      </div>
+      <div class="credit">
+        <div class="c-k">Interior Design</div>
+        <h3>Ingrid Aparicio Studio</h3>
+        <p>Hospitality-led interiors with a storytelling sensibility. Barcelona-trained, with work across Europe and Latin America.</p>
+      </div>
+      <div class="credit">
+        <div class="c-k">Wellness &amp; Wellbeing</div>
+        <h3>Adília Ferreira</h3>
+        <p>A leading figure in holistic wellness in Portugal for more than 25 years; concepts drawing on sound therapy, Tibetan yoga and Ayurvedic technique.</p>
+      </div>
+    </div>
+
+    <div class="mats rev">
+      <span class="mat">Douro-quarry stone</span>
+      <span class="mat">Marmorino plaster</span>
+      <span class="mat">Walnut &amp; oak</span>
+      <span class="mat">Terracotta</span>
+      <span class="mat">Linen</span>
+      <span class="mat">Bronze</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======== RENDERS CAROUSEL ======== -->
+<section class="sec dark" id="renders">
+  <div class="wrap inner">
+    <div class="sec-head rev"><span class="num">·</span><span class="label">The Renders · 2026</span></div>
+    <h2 class="rev">Nine rooms of the idea.</h2>
+    <p class="lede rev">Development imagery, approved for press use alongside the brief.</p>
+
+    <div class="car rev" id="car">
+      <div class="frame">
+        <div class="track" id="car-track">{{SLIDES}}</div>
+      </div>
+      <div class="arrows">
+        <button class="arr prev" id="car-prev" aria-label="Previous render"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button class="arr next" id="car-next" aria-label="Next render"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+      <div class="cap">
+        <div class="c-left">
+          <span class="c-label" id="cap-label"></span>
+          <span class="c-name" id="cap-name"></span>
+          <span class="c-note" id="cap-note"></span>
+        </div>
+        <span class="c-count" id="cap-count"></span>
+      </div>
+      <div class="dots" id="car-dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOUNDER QUOTE ======== -->
+<section class="pull">
+  <div class="inner">
+    <img class="q-symbol rev" src="{{L_SYMBOL}}" alt="">
+    <blockquote class="rev">We did not set out to build something new on the Douro. We took a quinta that had sheltered this valley for generations and gave it back, warmer and quieter, and ready for winter.</blockquote>
+    <div class="attr rev"><span class="q-name">Lior Zach</span><span class="q-role">Founder &amp; Managing Partner, BOA Hotels</span></div>
+  </div>
+</section>
+
+<!-- ======== IV · EXPERIENCE ======== -->
+<section class="sec" id="experience">
+  <div class="wrap inner">
+    <div class="sec-head rev"><span class="num">IV</span><span class="label">The Experience</span></div>
+    <h2 class="rev">Winter is not a limitation. It is the offer.</h2>
+    <p class="lede rev">KURA is built winter-first: a mountain wellness retreat focused on recovery, calm, and immersion, in the season the rest of the market abandons. The spa is the centre of the concept and the reason to travel.</p>
+
+    <div class="feats rev">
+      <div class="feat">
+        <div class="f-k">i. The altitude</div>
+        <h3>A mountain estate at 1,000 metres.</h3>
+        <p>Cold air, clean light and true seasons: cooler summers and snow-dusted winters, above a valley the rest of the world visits only in July.</p>
+      </div>
+      <div class="feat">
+        <div class="f-k">ii. The spa</div>
+        <h3>A world of warmth and water.</h3>
+        <p>Two levels and eight zones: a thermal circuit, an indoor pool held above the valley beneath a skylight, six treatment rooms, saunas, an ice fountain, a star-lit dark room, and studios for yoga, Pilates and breathwork.</p>
+      </div>
+      <div class="feat">
+        <div class="f-k">iii. The land</div>
+        <h3>A working farm, not a backdrop.</h3>
+        <p>Vineyards under two denominations, apple orchards, a kitchen garden and greenhouse. The harvest sets the menu each morning; guests walk the rows and pick with the season.</p>
+      </div>
+      <div class="feat">
+        <div class="f-k">iv. The culture</div>
+        <h3>Craft, close at hand.</h3>
+        <p>A workshop for open-kitchen sessions, pottery and tile-painting with local artisans; a gallery of rotating regional exhibitions; a shop of wines, oils, honey and hand-thrown ceramics.</p>
+      </div>
+    </div>
+
+    <div class="day rev">
+      <div class="d">
+        <div class="d-k">Morning</div>
+        <h3>Mist on the river</h3>
+        <p>Coffee as the valley surfaces from the fog. A walk through the orchards, breathwork in north light, breakfast led by whatever the garden gave that morning.</p>
+      </div>
+      <div class="d">
+        <div class="d-k">Afternoon</div>
+        <h3>Warmth and water</h3>
+        <p>The thermal circuit in its slow order: heat, cold, rest. A treatment, an hour by the indoor pool, or in summer, the seasonal pool under the pergola.</p>
+      </div>
+      <div class="d">
+        <div class="d-k">Evening</div>
+        <h3>Firelight</h3>
+        <p>Wine from the estate's own parcels, dinner from the farm, and the piano lounge afterwards: stone walls, warm light, silence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== V · PROPERTY ======== -->
+<section class="sec dark" id="property">
+  <div class="wrap inner">
+    <div class="sec-head rev"><span class="num">V</span><span class="label">The Property</span></div>
+    <h2 class="rev">Seventy-one keys, one quinta.</h2>
+    <p class="lede rev">A transformation of a historic Douro estate: 71 rooms and suites held within 26 hectares of vineyard, orchard and garden. Generous by design, never crowded by intention.</p>
+
+    <div class="stats rev">
+      <div class="stat"><div class="s-v">71</div><div class="s-k">Keys</div></div>
+      <div class="stat"><div class="s-v">26</div><div class="s-k">Hectares</div></div>
+      <div class="stat"><div class="s-v">1,000</div><div class="s-k">Metres altitude</div></div>
+      <div class="stat"><div class="s-v">6</div><div class="s-k">Treatment rooms</div></div>
+      <div class="stat"><div class="s-v">2</div><div class="s-k">Wine denominations</div></div>
+    </div>
+
+    <div class="amen rev">
+      <div>
+        <h3>Rooms &amp; suites</h3>
+        <ol>
+          <li><span class="n">01</span>Standard rooms<span class="d">from ~45 m²</span></li>
+          <li><span class="n">02</span>Suites<span class="d">second seating &amp; dining zone</span></li>
+          <li><span class="n">03</span>Family rooms<span class="d">two bedrooms · kitchenette</span></li>
+          <li><span class="n">04</span>The villa<span class="d">private sauna · jacuzzi · dining for 8</span></li>
+          <li><span class="n">05</span>Private terraces<span class="d">valley views throughout</span></li>
+        </ol>
+      </div>
+      <div>
+        <h3>The estate</h3>
+        <ol>
+          <li><span class="n">06</span>Chef restaurant<span class="d">farm-to-table · all day</span></li>
+          <li><span class="n">07</span>Bar &amp; lounges<span class="d">four rooms · piano lounge</span></li>
+          <li><span class="n">08</span>Spa<span class="d">two levels · eight zones</span></li>
+          <li><span class="n">09</span>Indoor &amp; seasonal outdoor pools</li>
+          <li><span class="n">10</span>Event hall &amp; gardens<span class="d">private &amp; corporate</span></li>
+          <li><span class="n">11</span>Workshop · gallery · shop<span class="d">craft &amp; produce</span></li>
+          <li><span class="n">12</span>Kids area<span class="d">own pool &amp; garden</span></li>
+          <li><span class="n">13</span>The farm<span class="d">garden · greenhouse · orchards</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <hr class="rule">
+    <div class="cols rev">
+      <p>Sustainability is structural rather than decorative: solar energy, greywater reuse, rainwater harvesting, and the transition of the estate's agricultural operation to organic practice.</p>
+      <p>At stabilisation the resort sustains 77 year-round positions, rising toward 99 in high season. A working estate in every sense, and one of the region's significant year-round employers.</p>
+    </div>
+
+    <hr class="rule">
+    <div class="cols rev">
+      <p>Alongside the resort, a small collection of fully serviced branded residences is planned within the estate, to be released as a later phase.</p>
+      <p>They are a modest part of the whole. The resort and its experience remain the heart of KURA, and residence details will follow separately in due course.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======== VI · FACT SHEET ======== -->
+<section class="sec" id="facts">
+  <div class="wrap inner">
+    <div class="sec-head rev"><span class="num">VI</span><span class="label">Press Fact Sheet</span></div>
+    <h2 class="rev">At a glance.</h2>
+
+    <div class="facts rev">
+      <div class="fact"><div class="k">Property</div><div class="v">KURA · Douro Valley</div></div>
+      <div class="fact"><div class="k">Operator</div><div class="v">BOA Hotels · developer, asset manager and brand owner · Portugal</div></div>
+      <div class="fact"><div class="k">Location</div><div class="v">Douro Valley, Portugal · a UNESCO World Heritage wine region</div></div>
+      <div class="fact"><div class="k">Altitude</div><div class="v">≈ 1,000 m above sea level</div></div>
+      <div class="fact"><div class="k">Opening</div><div class="v">2029</div></div>
+      <div class="fact"><div class="k">Classification</div><div class="v">5-star · approved by Turismo de Portugal</div></div>
+      <div class="fact"><div class="k">Inventory</div><div class="v">71 keys: standard rooms (from ~45 m²), suites, two-bedroom family rooms, and one standalone villa</div></div>
+      <div class="fact"><div class="k">Residences</div><div class="v">A small collection of fully serviced branded residences, planned as a later phase of the estate</div></div>
+      <div class="fact"><div class="k">Estate</div><div class="v">26 hectares of vineyards, apple orchards, kitchen garden and gardens</div></div>
+      <div class="fact"><div class="k">Wine</div><div class="v">Estate parcels in two denominations, Douro DOC and Távora-Varosa, for still and sparkling wines</div></div>
+      <div class="fact"><div class="k">Architecture</div><div class="v">FAT · Future Architecture Thinking, Lisbon</div></div>
+      <div class="fact"><div class="k">Interior design</div><div class="v">Ingrid Aparicio Studio</div></div>
+      <div class="fact"><div class="k">Wellness</div><div class="v">Concept by Adília Ferreira · spa across two levels and eight zones · six treatment rooms</div></div>
+      <div class="fact"><div class="k">Dining</div><div class="v">Farm-to-table chef restaurant · bar &amp; lounges · seasonal pool restaurant · event catering</div></div>
+      <div class="fact"><div class="k">Web</div><div class="v"><a href="https://www.kurabyboa.com" target="_blank" rel="noopener" style="color:var(--terracotta)">www.kurabyboa.com</a></div></div>
+      <div class="fact"><div class="k">Press contact</div><div class="v"><a href="mailto:partner@boahotels.com" style="color:var(--terracotta)">partner@boahotels.com</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== VII · PRESS ======== -->
+<section class="sec dark" id="press" style="border-bottom:none">
+  <div class="wrap inner">
+    <div class="sec-head rev"><span class="num">VII</span><span class="label">For the Agency</span></div>
+    <h2 class="rev">Press &amp; communications.</h2>
+    <p class="lede rev">This document is a working reference for the PR partner. Tone, hero lines and fact-sheet language are pre-approved and may be quoted as-is or paraphrased to outlet voice.</p>
+
+    <div class="heroLines rev">
+      <div class="hl">The Douro's first winter resort.</div>
+      <div class="hl">Where the Douro is distilled and revealed with precision.</div>
+      <div class="hl">Winter is not a limitation. It is the offer.</div>
+      <div class="hl">The valley does not hurry the vine. Neither do we.</div>
+    </div>
+
+    <div class="guard rev">
+      <div class="g">
+        <h3>Location language</h3>
+        <p>The property is always communicated as <strong>“KURA, Douro Valley, Portugal.”</strong> Do not use municipality-level place names in any coverage or caption.</p>
+      </div>
+      <div class="g">
+        <h3>The estate</h3>
+        <p>KURA is a <strong>transformation of the existing quinta</strong>, never “built around” it, and never described as new construction on virgin land.</p>
+      </div>
+      <div class="g">
+        <h3>Voice</h3>
+        <p>Precise, restrained, rooted, unhurried. No superlatives, no exclamation marks, no promotional urgency. Trust the place to speak for itself.</p>
+      </div>
+      <div class="g">
+        <h3>Forward-looking items</h3>
+        <p>Commercial partnerships, affiliations and any future phases of the estate are embargoed until separately announced. Nothing beyond this brief should be stated as fact.</p>
+      </div>
+    </div>
+
+    <div class="contact rev">
+      <div class="c">
+        <div class="c-k">Operator · BOA Hotels</div>
+        <p><a href="mailto:partner@boahotels.com">partner@boahotels.com</a><br>Press &amp; media enquiries</p>
+      </div>
+      <div class="c">
+        <div class="c-k">Web</div>
+        <p><a href="https://www.kurabyboa.com" target="_blank" rel="noopener">www.kurabyboa.com</a><br>The public site, now live</p>
+      </div>
+      <div class="c">
+        <div class="c-k">Asset library</div>
+        <p>High-resolution renders, logo files and brand guidelines available on request from the operator.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer>
+  <div class="inner">
+    <img class="f-lockup" src="{{L_LOCKUP}}" alt="KURA · Douro Valley · Portugal">
+    <div class="f-line">Preserved. Restored. Revealed.</div>
+    <img class="f-boa" src="{{L_BOA}}" alt="BOA Hotels">
+    <div class="f-legal">
+      KURA · Douro Valley · Press Brief · Document v2 · July 2026<br>
+      Confidential, for agency use · © 2026 BOA Hotels · All rights reserved
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- gate ---------- */
+(() => {
+  const HASH = '{{GATE_HASH}}';
+  const KEY = 'kura-press-unlocked';
+  const gate = document.getElementById('gate');
+  const form = document.getElementById('gate-form');
+  const input = document.getElementById('gate-input');
+  const err = document.getElementById('gate-err');
+  function unlock(){
+    document.body.classList.remove('locked');
+    gate.classList.add('unlocked');
+    try{ sessionStorage.setItem(KEY,'1'); }catch(e){}
+  }
+  async function sha256(s){
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+    return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
+  try{ if(sessionStorage.getItem(KEY)==='1') unlock(); }catch(e){}
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const v = input.value.trim().toLowerCase();
+    if(!v) return;
+    const h = await sha256(v);
+    if(h===HASH){ unlock(); }
+    else{ err.classList.add('show'); input.value=''; input.focus(); setTimeout(()=>err.classList.remove('show'),2400); }
+  });
+})();
+
+/* ---------- carousel ---------- */
+(() => {
+  const CAPTIONS = {{CAPTIONS}};
+  const track = document.getElementById('car-track');
+  const slides = track.children;
+  const n = slides.length;
+  const dotsBox = document.getElementById('car-dots');
+  let i = 0, timer = null;
+  for(let k=0;k<n;k++){
+    const d = document.createElement('button');
+    d.className = 'dot'; d.setAttribute('aria-label','Render '+(k+1));
+    d.addEventListener('click',()=>go(k,true));
+    dotsBox.appendChild(d);
+  }
+  const dots = dotsBox.children;
+  function render(){
+    track.style.transform = 'translateX(' + (-i*100) + '%)';
+    const c = CAPTIONS[i];
+    document.getElementById('cap-label').textContent = c[0];
+    document.getElementById('cap-name').textContent = c[1];
+    document.getElementById('cap-note').textContent = c[2];
+    document.getElementById('cap-count').textContent = String(i+1).padStart(2,'0') + ' / ' + String(n).padStart(2,'0');
+    for(let k=0;k<n;k++) dots[k].classList.toggle('on', k===i);
+  }
+  function go(k, manual){
+    i = (k+n)%n; render();
+    if(manual) restart();
+  }
+  function restart(){ if(timer) clearInterval(timer); timer = setInterval(()=>go(i+1,false), 6000); }
+  document.getElementById('car-prev').addEventListener('click',()=>go(i-1,true));
+  document.getElementById('car-next').addEventListener('click',()=>go(i+1,true));
+  document.addEventListener('keydown',(e)=>{
+    if(document.body.classList.contains('locked')) return;
+    if(e.key==='ArrowLeft') go(i-1,true);
+    if(e.key==='ArrowRight') go(i+1,true);
+  });
+  let x0=null;
+  track.addEventListener('touchstart',(e)=>{x0=e.touches[0].clientX;},{passive:true});
+  track.addEventListener('touchend',(e)=>{
+    if(x0===null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if(Math.abs(dx)>44) go(i + (dx<0?1:-1), true);
+    x0=null;
+  },{passive:true});
+  render(); restart();
+})();
+
+/* ---------- reveal on scroll ---------- */
+(() => {
+  const els = document.querySelectorAll('.rev');
+  if(!('IntersectionObserver' in window)){ els.forEach(e=>e.classList.add('in')); return; }
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(e=>io.observe(e));
+})();
+</script>
+</body>
+</html>
