@@ -52,6 +52,9 @@ html = html.replace('{{L_WORDMARK}}', b64_trim(f'{SP}/assets/kura-wordmark-parch
 html = html.replace('{{L_LOCKUP}}',   b64_trim(f'{SP}/assets/kura-lockup-parchment.png'))
 html = html.replace('{{L_BOA}}',      b64(f'{SP}/assets/boa-brandname-white.png','image/png'))
 
+# location satellite image (Esri World Imagery export, ~800 m over the estate)
+html = html.replace('{{IMG_SATELLITE}}', b64(f'{SP}/assets/estate-satellite.jpg', 'image/jpeg'))
+
 # favicon — new three-arc symbol (parchment) centred on a schist tile
 from PIL import Image as _Img
 _sym = _Img.open(f'{SP}/assets/kura-symbol-parchment.png').convert('RGBA')

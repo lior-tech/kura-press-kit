@@ -144,13 +144,17 @@ hr.rule{border:none;border-top:1px solid var(--line-light);margin:clamp(48px,7vw
 .place p{font-size:14px;line-height:1.65;color:rgba(28,23,20,.7)}
 .place .p-d{margin-top:14px;font-family:var(--sans);font-weight:300;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(28,23,20,.5)}
 @media(max-width:820px){.places{grid-template-columns:1fr}}
-a.maplink{display:flex;align-items:center;gap:18px;margin-top:clamp(30px,4vw,46px);border:1px solid var(--line-light);padding:20px clamp(20px,3vw,32px);transition:background .3s,border-color .3s}
-a.maplink:hover{background:rgba(28,23,20,.045);border-color:var(--terracotta)}
-a.maplink .m-pin{flex:none;width:30px;height:30px;color:var(--terracotta)}
-a.maplink .m-txt{display:flex;flex-direction:column;gap:5px}
-a.maplink .m-k{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(28,23,20,.5)}
-a.maplink .m-t{font-size:16.5px;color:var(--ink-on-light)}
-a.maplink .m-arrow{margin-left:auto;font-size:19px;color:var(--terracotta)}
+.mapembed{margin-top:clamp(34px,5vw,52px)}
+.map-frame{position:relative;display:block;width:100%;aspect-ratio:16/9;border:1px solid var(--line-light);overflow:hidden;background:var(--parchment-deep)}
+@media(max-width:640px){.map-frame{aspect-ratio:4/3}}
+.map-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.map-frame:hover img{transform:scale(1.03)}
+.map-pin{position:absolute;left:50%;top:50%;width:28px;height:28px;transform:translate(-50%,-100%);filter:drop-shadow(0 2px 5px rgba(0,0,0,.55));pointer-events:none}
+.map-pin svg{width:100%;height:100%}
+.map-hint{position:absolute;right:14px;bottom:14px;font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--parchment);background:rgba(28,23,20,.7);padding:9px 13px}
+.map-cap{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:14px}
+.map-cap .m-k{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(28,23,20,.5)}
+.map-cap .m-attr{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.06em;color:rgba(28,23,20,.4)}
 
 /* ---------- design credits ---------- */
 .credits{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,52px) clamp(36px,5vw,72px);margin-top:clamp(40px,6vw,60px)}
@@ -407,11 +411,17 @@ footer .f-legal{font-family:var(--sans);font-weight:300;font-size:10px;letter-sp
       </div>
     </div>
 
-    <a class="maplink rev" href="https://www.google.com/maps/@41.105335,-7.733529,1400m/data=!3m1!1e3" target="_blank" rel="noopener" aria-label="View the estate location on Google Maps in satellite view">
-      <svg class="m-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
-      <span class="m-txt"><span class="m-k">The location · Douro Valley</span><span class="m-t">See the estate from above on Google Maps, satellite view</span></span>
-      <span class="m-arrow" aria-hidden="true">↗</span>
-    </a>
+    <div class="mapembed rev">
+      <a class="map-frame" href="https://www.google.com/maps/@41.1044,-7.7332,1000m/data=!3m1!1e3" target="_blank" rel="noopener" aria-label="Open the estate location in Google Maps, satellite view">
+        <img src="{{IMG_SATELLITE}}" alt="Satellite view of the KURA estate among the vineyards of the Douro Valley">
+        <span class="map-pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#A85535" stroke="#E8E0D0" stroke-width="1.2"><path d="M12 22s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10.5" r="2.6" fill="#E8E0D0" stroke="none"/></svg></span>
+        <span class="map-hint">Open in Google Maps · Satellite ↗</span>
+      </a>
+      <div class="map-cap">
+        <span class="m-k">The location · Douro Valley</span>
+        <span class="m-attr">Satellite imagery · Esri World Imagery</span>
+      </div>
+    </div>
   </div>
 </section>
 
