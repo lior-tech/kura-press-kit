@@ -144,6 +144,13 @@ hr.rule{border:none;border-top:1px solid var(--line-light);margin:clamp(48px,7vw
 .place p{font-size:14px;line-height:1.65;color:rgba(28,23,20,.7)}
 .place .p-d{margin-top:14px;font-family:var(--sans);font-weight:300;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(28,23,20,.5)}
 @media(max-width:820px){.places{grid-template-columns:1fr}}
+a.maplink{display:flex;align-items:center;gap:18px;margin-top:clamp(30px,4vw,46px);border:1px solid var(--line-light);padding:20px clamp(20px,3vw,32px);transition:background .3s,border-color .3s}
+a.maplink:hover{background:rgba(28,23,20,.045);border-color:var(--terracotta)}
+a.maplink .m-pin{flex:none;width:30px;height:30px;color:var(--terracotta)}
+a.maplink .m-txt{display:flex;flex-direction:column;gap:5px}
+a.maplink .m-k{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(28,23,20,.5)}
+a.maplink .m-t{font-size:16.5px;color:var(--ink-on-light)}
+a.maplink .m-arrow{margin-left:auto;font-size:19px;color:var(--terracotta)}
 
 /* ---------- design credits ---------- */
 .credits{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,52px) clamp(36px,5vw,72px);margin-top:clamp(40px,6vw,60px)}
@@ -399,6 +406,12 @@ footer .f-legal{font-family:var(--sans);font-weight:300;font-size:10px;letter-sp
         <div class="p-d">≈ 5h by car · 491 km</div>
       </div>
     </div>
+
+    <a class="maplink rev" href="https://www.google.com/maps/@41.105335,-7.733529,1400m/data=!3m1!1e3" target="_blank" rel="noopener" aria-label="View the estate location on Google Maps in satellite view">
+      <svg class="m-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+      <span class="m-txt"><span class="m-k">The location · Douro Valley</span><span class="m-t">See the estate from above on Google Maps, satellite view</span></span>
+      <span class="m-arrow" aria-hidden="true">↗</span>
+    </a>
   </div>
 </section>
 
@@ -501,7 +514,7 @@ footer .f-legal{font-family:var(--sans);font-weight:300;font-size:10px;letter-sp
       <div class="feat">
         <div class="f-k">ii. The spa</div>
         <h3>A world of warmth and water.</h3>
-        <p>Two levels and eight zones: a thermal circuit, an indoor pool held above the valley beneath a skylight, six treatment rooms, saunas, an ice fountain, a star-lit dark room, and studios for yoga, Pilates and breathwork.</p>
+        <p>Two levels and eight zones: a thermal circuit, an indoor pool held above the valley beneath a skylight, six treatment rooms, saunas, an ice fountain, a star-lit dark room, and studios for yoga, Pilates and breathwork. An adult sanctuary, reserved for guests aged 16 and over, as is the outdoor pool.</p>
       </div>
       <div class="feat">
         <div class="f-k">iii. The land</div>
@@ -509,9 +522,19 @@ footer .f-legal{font-family:var(--sans);font-weight:300;font-size:10px;letter-sp
         <p>Vineyards under two denominations, apple orchards, a kitchen garden and greenhouse. The harvest sets the menu each morning; guests walk the rows and pick with the season.</p>
       </div>
       <div class="feat">
-        <div class="f-k">iv. The culture</div>
+        <div class="f-k">iv. The table</div>
+        <h3>Farm to table, all day.</h3>
+        <p>Breakfast, lunch and dinner in the chef's restaurant, drawn from the estate and the valley. Through the season, a pool bar for snacks by the water; at the bar, food all day and into the late hours; and the piano lounge after dark.</p>
+      </div>
+      <div class="feat">
+        <div class="f-k">v. The family</div>
+        <h3>A world of their own.</h3>
+        <p>A kids' club with its own play area and pool, set apart from the adult spaces, so children have somewhere entirely theirs while the spa and outdoor pool stay calm and grown-up.</p>
+      </div>
+      <div class="feat">
+        <div class="f-k">vi. The culture</div>
         <h3>Craft, close at hand.</h3>
-        <p>A workshop for open-kitchen sessions, pottery and tile-painting with local artisans; a gallery of rotating regional exhibitions; a shop of wines, oils, honey and hand-thrown ceramics.</p>
+        <p>A workshop for open-kitchen sessions, pottery and tile-painting with local artisans; a gallery of rotating regional exhibitions; and a shop of Portuguese wines, oils, honey and hand-thrown ceramics.</p>
       </div>
     </div>
 
@@ -564,13 +587,13 @@ footer .f-legal{font-family:var(--sans);font-weight:300;font-size:10px;letter-sp
       <div>
         <h3>The estate</h3>
         <ol>
-          <li><span class="n">06</span>Chef restaurant<span class="d">farm-to-table · all day</span></li>
-          <li><span class="n">07</span>Bar &amp; lounges<span class="d">four rooms · piano lounge</span></li>
-          <li><span class="n">08</span>Spa<span class="d">two levels · eight zones</span></li>
-          <li><span class="n">09</span>Indoor &amp; seasonal outdoor pools</li>
+          <li><span class="n">06</span>Chef restaurant<span class="d">breakfast, lunch &amp; dinner · farm-to-table</span></li>
+          <li><span class="n">07</span>Bar &amp; lounges<span class="d">piano lounge · all day &amp; late</span></li>
+          <li><span class="n">08</span>Spa<span class="d">two levels · eight zones · 16+</span></li>
+          <li><span class="n">09</span>Indoor &amp; seasonal outdoor pools<span class="d">seasonal pool bar · outdoor 16+</span></li>
           <li><span class="n">10</span>Event hall &amp; gardens<span class="d">private &amp; corporate</span></li>
-          <li><span class="n">11</span>Workshop · gallery · shop<span class="d">craft &amp; produce</span></li>
-          <li><span class="n">12</span>Kids area<span class="d">own pool &amp; garden</span></li>
+          <li><span class="n">11</span>Workshop · gallery · shop<span class="d">Portuguese craft &amp; produce</span></li>
+          <li><span class="n">12</span>Kids' club<span class="d">own play area &amp; pool</span></li>
           <li><span class="n">13</span>The farm<span class="d">garden · greenhouse · orchards</span></li>
         </ol>
       </div>
@@ -610,7 +633,10 @@ footer .f-legal{font-family:var(--sans);font-weight:300;font-size:10px;letter-sp
       <div class="fact"><div class="k">Architecture</div><div class="v">FAT · Future Architecture Thinking, Lisbon</div></div>
       <div class="fact"><div class="k">Interior design</div><div class="v">Ingrid Aparicio Studio</div></div>
       <div class="fact"><div class="k">Wellness</div><div class="v">Concept by Adília Ferreira · spa across two levels and eight zones · six treatment rooms</div></div>
-      <div class="fact"><div class="k">Dining</div><div class="v">Farm-to-table chef restaurant · bar &amp; lounges · seasonal pool restaurant · event catering</div></div>
+      <div class="fact"><div class="k">Dining</div><div class="v">Chef's restaurant, breakfast to dinner, farm-to-table · bar with all-day and late-night food · seasonal pool bar · piano lounge · event catering</div></div>
+      <div class="fact"><div class="k">Spa &amp; outdoor pool</div><div class="v">Reserved for guests aged 16 and over</div></div>
+      <div class="fact"><div class="k">Families</div><div class="v">Kids' club with its own play area and pool, set apart from the adult spaces</div></div>
+      <div class="fact"><div class="k">Culture &amp; retail</div><div class="v">Artisan workshop · gallery of rotating regional exhibitions · shop of Portuguese wines, produce and ceramics</div></div>
       <div class="fact"><div class="k">Web</div><div class="v"><a href="https://www.kurabyboa.com" target="_blank" rel="noopener" style="color:var(--terracotta)">www.kurabyboa.com</a></div></div>
       <div class="fact"><div class="k">Press contact</div><div class="v"><a href="mailto:partner@boahotels.com" style="color:var(--terracotta)">partner@boahotels.com</a></div></div>
     </div>
